@@ -2,254 +2,246 @@
 #define MAX 5
 using namespace std;
 
-class queue
+class stack
 {
     private:
     int a[MAX];
-    int front;
-    int rear;
-
+    int top;
     public:
-    queue()
+    stack()
     {
-        front=-1;
-        rear=-1;
+        top=-1;
     }
 
     int empty()
     {
-        if(front==-1 && rear==-1)
+    if(top==-1)
+    
         return 1;
         else return 0;
     }
 
     int full()
     {
-        if(rear==MAX-1)
-        return 1;
-        else return 0;
+        if(top==MAX-1)
+        {
+            return 1;
+           
+        }
+         else return 0;
+    }
+
+    void push(int x)
+    {
+        top++;
+        a[top]=x;
+    }
+
+    int pop()
+    {
+        int x= a[top];
+        top--;
+        return x;
     }
 
     int peek()
     {
-        return (a[front]);
+        return (a[top]);
     }
 
-    void display(void)
+    void display()
     {
-        for(int i=front; i<=rear; i++)
-        cout<<" "<<a[i];
-    }
-
-    void enqueue(int x)
-    {
-        if(front==-1 && rear==-1)
-        {
-            front++;
-            rear++;
-        }
-        else
-        {
-            rear++;
-        }
-        a[rear]=x;
-    }
-
-    int dequeue()
-    {
-        int x=a[front];
-        if(front==rear)
-        {
-            front=-1;
-            rear=-1;
-        }
-        else{
-            front++;
-        }
-        return x;
+        for(int i=top; i>=0; i--)
+        cout<<a[i]<<" "<<endl;
     }
 };
 
-
 int main()
 {
-    queue q;
+    stack s;
 
-    if(q.full())
+    if(s.full())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Full!!";
+    }
+    else{
+        s.push(10);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+    
+
+    if(s.full())
+    {
+        cout<<"Stack is Full!!";
+    }
+    else{
+        s.push(20);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+
+    if(s.full())
+    {
+        cout<<"Stack is Full!!";
+    }
+    else{
+        s.push(30);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+
+    if(s.full())
+    {
+        cout<<"Stack is Full!!";
+    }
+    else{
+        s.push(40);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+
+    if(s.full())
+    {
+        cout<<"Stack is Full!!";
+    }
+    else{
+        s.push(50);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+
+    if(s.full())
+    {
+        cout<<"Stack is Full!!"<<endl;
+    }
+    else{
+        s.push(60);
+        cout<<"Stack Contents After a Push Operation"<<endl;
+        s.display();
+    }
+
+
+    if(s.empty())
+    {
+        cout<<"Stack is Empty!!";
     }
     else
     {
-        q.enqueue(10);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display(); cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
-    if(q.full())
+    if(s.empty())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Empty!!";
     }
     else
     {
-        q.enqueue(20);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display();cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
-    if(q.full())
+    if(s.empty())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Empty!!";
     }
     else
     {
-        q.enqueue(30);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display();cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
-    if(q.full())
+    if(s.empty())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Empty!!";
     }
     else
     {
-        q.enqueue(40);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display();cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
-    if(q.full())
+    if(s.empty())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Empty!!";
     }
     else
     {
-        q.enqueue(50);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display();cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
-    if(q.full())
+    if(s.empty())
     {
-        cout<<" Queue is Full!!"<<endl;
+        cout<<"Stack is Empty!!"<<endl;
     }
     else
     {
-        q.enqueue(60);
-        cout<<"Queue Contents after a Enqueue Operation:"<<endl;
-        q.display();cout<<endl;
+        cout<<"Popped Out Element is:"<<s.pop()<<endl;
     }
-
-
-
-
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
-
-
-    if(q.empty())
-    {
-        cout<<"Queue is Empty!!"<<endl;
-    }
-    else
-    {
-        cout<<"Removed Element is:"<<q.dequeue()<<endl;
-    }
-    cout<<"Queue After Dequeue Operation:"<<endl;
-    q.display();cout<<endl;
+    cout<<"Stack contents After Pop Operation:"<<endl;
+    s.display();
 
     return 0;
+
+
 }
 
+/* OUTPUT
+PS D:\Sarthak C> 
 
-/*
-OUTPUT
 
-cd "d:\Sarthak C\" ; if ($?) { g++ queue_by_Array.cpp -o queue_by_Array } ; if ($?) { .\queue_by_Array }
-Queue Contents after a Enqueue Operation:
- 10
-Queue Contents after a Enqueue Operation:
- 10 20
-Queue Contents after a Enqueue Operation:
- 10 20 30
-Queue Contents after a Enqueue Operation:
- 10 20 30 40
-Queue Contents after a Enqueue Operation:
- 10 20 30 40 50
- Queue is Full!!
-Removed Element is:10
-Queue After Dequeue Operation:
- 20 30 40 50
-Removed Element is:20
-Queue After Dequeue Operation:
- 30 40 50
-Removed Element is:30
-Queue After Dequeue Operation:
- 40 50
-Removed Element is:40
-Queue After Dequeue Operation:
- 50
-Removed Element is:50
-Queue After Dequeue Operation:
- 1982720592
-Queue is Empty!!
+
+
+               > cd "d:\Sarthak C\" ; if ($?) { g++ Stack_by_Array.cpp -o Stack_by_Array } ; if ($?) { .\Stack_by_Array }
+Stack Contents After a Push Operation
+10 
+Stack Contents After a Push Operation
+20 
+10 
+Stack Contents After a Push Operation
+30 
+20 
+10 
+Stack Contents After a Push Operation
+40 
+30 
+20 
+10 
+Stack Contents After a Push Operation
+50 
+40 
+30 
+20 
+10 
+Stack is Full!!
+Popped Out Element is:50
+Stack contents After Pop Operation:
+40 
+30 
+20 
+10 
+Popped Out Element is:40
+Stack contents After Pop Operation:
+30 
+20 
+10 
+Popped Out Element is:30
+Stack contents After Pop Operation:
+20 
+10 
+Popped Out Element is:20
+Stack contents After Pop Operation:
+10 
+Popped Out Element is:10
+Stack contents After Pop Operation:
+Stack is Empty!!
+Stack contents After Pop Operation:
+PS D:\Sarthak C> 
 */
